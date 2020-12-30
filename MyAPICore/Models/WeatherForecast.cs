@@ -1,6 +1,6 @@
 using System;
 
-namespace MyAPICore
+namespace MyAPICore.Models
 {
     public class WeatherForecast
     {

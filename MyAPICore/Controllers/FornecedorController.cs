@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using MyAPICore.Models;
@@ -20,14 +19,12 @@ namespace MyAPICore.Controllers
             _context = context;
         }
 
-        // GET: api/Fornecedors
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Fornecedor>>> GetFornecedores()
         {
             return await _context.Fornecedores.ToListAsync();
         }
 
-        // GET: api/Fornecedors/5
         [HttpGet("{id:guid}")]
         public async Task<ActionResult<Fornecedor>> GetFornecedor(Guid id)
         {
@@ -41,8 +38,6 @@ namespace MyAPICore.Controllers
             return fornecedor;
         }
 
-        // PUT: api/Fornecedors/5
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> PutFornecedor(Guid id, Fornecedor fornecedor)
         {
@@ -72,8 +67,6 @@ namespace MyAPICore.Controllers
             return NoContent();
         }
 
-        // POST: api/Fornecedors
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<Fornecedor>> PostFornecedor(Fornecedor fornecedor)
         {
@@ -83,7 +76,6 @@ namespace MyAPICore.Controllers
             return CreatedAtAction("GetFornecedor", new { id = fornecedor.Id }, fornecedor);
         }
 
-        // DELETE: api/Fornecedors/5
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteFornecedor(Guid id)
         {
